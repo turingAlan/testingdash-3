@@ -76,7 +76,7 @@ const Logo = () => {
 
   return (
     <Link href={getLocalizedUrl('/', locale as Locale)} className='flex items-center'>
-      {tenantData.logo ? (
+      {tenantData?.logo ? (
         <div className='flex items-end justify-center gap-2'>
           {!tenantData.is_whitelabel && (
             <ImageWrapper
