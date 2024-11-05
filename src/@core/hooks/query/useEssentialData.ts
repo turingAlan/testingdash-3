@@ -41,7 +41,7 @@ const getProfileData = async (): Promise<any> => {
 const useEssentialData = () => {
   const { setEssentialData } = useEssentialDataStore()
 
-  const { currentShopData, variantData } = useEssentialDataStore()
+  const { currentShopData, allShops } = useEssentialDataStore()
 
   const handleDataSuccess = (data: EssentialData) => {
     setEssentialData(data)
@@ -51,7 +51,7 @@ const useEssentialData = () => {
     queries: [
       {
         queryKey: [queryKey.getProfileData],
-        queryFn: getAllStores,
+        queryFn: getProfileData,
         staleTime: Infinity
       },
       {
@@ -89,13 +89,11 @@ const useEssentialData = () => {
       const profileData = results[0]?.data?.[0]
 
       // If the currentShopData is not set, set it to the first shop data
-      const shopData = currentShopData ? currentShopData : results?.[1]?.data?.[0]
-
-      console.log('here is the shopdata', currentShopData, variantData, shopData, results?.[1]?.data)
+      const shopData = results?.[1]?.data?.[0]
 
       return {
         data: {
-          profileData: null,
+          profileData: profileData,
           allShops: results[1]?.data ?? [],
           paymentDetails: results[2]?.data ?? [],
           categoryMetaData: results[3]?.data?.data,
@@ -120,8 +118,7 @@ const useEssentialData = () => {
 
   // Set the essential data in the store
   useEffect(() => {
-    if (combinedQueries.data && !combinedQueries.isLoading && !combinedQueries.isError) {
-      console.log('here is it refreshing')
+    if (combinedQueries.data && !combinedQueries.isLoading) {
       handleDataSuccess(combinedQueries.data)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

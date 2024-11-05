@@ -26,11 +26,11 @@ const useEssentialDataStore = create<EssentialDataStore>()(
         setProfileData: (data: any) => set({ profileData: data }),
         setAllShops: (updateStoreList: StoreDetails[]) =>
           set(state => {
-            // let currentShopData = state.currentShopData || updateStoreList[0]
+            let currentShopData = state.currentShopData || updateStoreList[0]
 
-            // currentShopData = updateStoreList.find(shop => shop.id === currentShopData?.id) || updateStoreList[0]
+            currentShopData = updateStoreList.find(shop => shop.id === currentShopData?.id) || updateStoreList[0]
 
-            return { allShops: updateStoreList }
+            return { allShops: updateStoreList, currentShopData }
           }),
         setVariantData: (data: VariantData | null) => set({ variantData: data }),
         setVariantDataId: (data: string | null) => set({ variantDataId: data }),
