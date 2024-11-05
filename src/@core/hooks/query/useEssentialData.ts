@@ -117,7 +117,7 @@ const useEssentialData = () => {
 
   // Set the essential data in the store
   useEffect(() => {
-    if (combinedQueries.data && !combinedQueries.isLoading && !combinedQueries.isError) {
+    if (combinedQueries.data && !combinedQueries.isLoading) {
       handleDataSuccess(combinedQueries.data)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
