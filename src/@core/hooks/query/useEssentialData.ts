@@ -88,7 +88,7 @@ const useEssentialData = () => {
       const profileData = results[0]?.data?.[0]
 
       // If the currentShopData is not set, set it to the first shop data
-      const shopData = currentShopData ? currentShopData : allShops?.[1]
+      const shopData = currentShopData ? currentShopData : allShops?.[0]
 
       return {
         data: {
