@@ -91,6 +91,8 @@ const useEssentialData = () => {
       // If the currentShopData is not set, set it to the first shop data
       const shopData = currentShopData ? currentShopData : results?.[1]?.data?.[0]
 
+      console.log('here is the shopdata', currentShopData, shopData, results?.[1]?.data)
+
       return {
         data: {
           profileData: profileData,
@@ -119,6 +121,7 @@ const useEssentialData = () => {
   // Set the essential data in the store
   useEffect(() => {
     if (combinedQueries.data && !combinedQueries.isLoading) {
+      console.log('here is it refreshing')
       handleDataSuccess(combinedQueries.data)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
