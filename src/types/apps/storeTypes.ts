@@ -69,8 +69,7 @@ type StoreImage = {
 }
 
 type StoreTiming = {
-  // TODO: Fix this type
-  days: any[]
+  days: any[] // TODO: Fix this type
   range: {
     start: string
     end: string
