@@ -32,7 +32,7 @@ const LayoutWrapper = (props: LayoutWrapperProps) => {
 
   const router = useRouter()
 
-  const { isError, isLoading } = useEssentialData()
+  const { isLoading } = useEssentialData()
 
   // Delete the access token when on login
   useEffect(() => {
@@ -46,7 +46,7 @@ const LayoutWrapper = (props: LayoutWrapperProps) => {
   // Return the layout based on the layout context
   return (
     <div className='flex flex-col flex-auto' data-skin={settings.skin}>
-      {isLoading || isError ? (
+      {isLoading ? (
         <div className='flex flex-col flex-auto items-center justify-center'>
           <div className='loader' />
         </div>

@@ -17,7 +17,7 @@ type EssentialData = {
 type EssentialDataStore = {
   profileData: UserData | null
   allShops: StoreDetails[]
-  paymentDetails: PaymentDetail[] | null
+  paymentDetails: PaymentDetail[]
   allCategories: string[]
   categoryMetaData: any | null
   organizationData: any | null
