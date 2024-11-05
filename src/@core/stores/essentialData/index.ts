@@ -54,7 +54,7 @@ const useEssentialDataStore = create<EssentialDataStore>()(
       }
     ),
     {
-      enabled: process.env.NODE_ENV === 'development' // Enable devtools in development
+      enabled: true // Enable devtools in development
     }
   )
 )
