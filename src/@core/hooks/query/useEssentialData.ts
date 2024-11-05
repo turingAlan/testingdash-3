@@ -41,7 +41,7 @@ const getProfileData = async (): Promise<any> => {
 const useEssentialData = () => {
   const { setEssentialData } = useEssentialDataStore()
 
-  const { currentShopData } = useEssentialDataStore()
+  const { currentShopData, variantData } = useEssentialDataStore()
 
   const handleDataSuccess = (data: EssentialData) => {
     setEssentialData(data)
@@ -91,7 +91,7 @@ const useEssentialData = () => {
       // If the currentShopData is not set, set it to the first shop data
       const shopData = currentShopData ? currentShopData : results?.[1]?.data?.[0]
 
-      console.log('here is the shopdata', currentShopData, shopData, results?.[1]?.data)
+      console.log('here is the shopdata', currentShopData, variantData, shopData, results?.[1]?.data)
 
       return {
         data: {
