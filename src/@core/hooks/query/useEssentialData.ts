@@ -6,7 +6,7 @@ import { queryKey } from '@/@core/querykey'
 import { useEssentialDataStore } from '@/@core/stores'
 import type { EssentialData } from '@/types/apps/stateStoreTypes'
 import axiosInstance from '@/@core/api/interceptor'
-import type { StoreDetails } from '@/types/apps/storeTypes'
+import type { PaymentDetail, StoreDetails } from '@/types/apps/storeTypes'
 
 const getAllStores = async (): Promise<StoreDetails[]> => {
   const res = await axiosInstance.get(`/ironcore/store-api/v0/storefront/`)
@@ -14,7 +14,7 @@ const getAllStores = async (): Promise<StoreDetails[]> => {
   return res.data
 }
 
-const getPaymentDetails = async () => {
+const getPaymentDetails = async (): Promise<PaymentDetail[]> => {
   const res = await axiosInstance.get(`/ironcore/users-api/v0/payment-detail/`)
 
   return res.data
@@ -26,13 +26,13 @@ const getCategoryMetaData = async () => {
   return res.data
 }
 
-const getOrganizationData = async () => {
+const getOrganizationData = async (): Promise<any> => {
   const res = await axiosInstance.get('/ironcore/organisation/')
 
   return res.data
 }
 
-const getProfileData = async () => {
+const getProfileData = async (): Promise<any> => {
   const res = await axiosInstance.get('/ironcore/users-api/v0/user/')
 
   return res.data
@@ -90,6 +90,8 @@ const useEssentialData = () => {
 
       // If the currentShopData is not set, set it to the first shop data
       const shopData = currentShopData ? currentShopData : results?.[1]?.data?.[0] ?? null
+
+      console.log('here is the shopdata', shopData, results?.[1]?.data)
 
       return {
         data: {
