@@ -4,7 +4,7 @@ import type { categoryMetaData, PaymentDetail, StoreDetails, VariantData } from 
 
 type EssentialData = {
   profileData: UserData | null
-  allShops: StoreDetails[] | null
+  allShops: StoreDetails[]
   paymentDetails: PaymentDetail[]
   allCategories: string[]
   categoryMetaData: categoryMetaData | null
@@ -16,7 +16,7 @@ type EssentialData = {
 
 type EssentialDataStore = {
   profileData: UserData | null
-  allShops: StoreDetails[] | null
+  allShops: StoreDetails[]
   paymentDetails: PaymentDetail[] | null
   allCategories: string[]
   categoryMetaData: any | null

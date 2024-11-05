@@ -6,7 +6,7 @@ import type { EssentialData, EssentialDataStore } from '@/types/apps/stateStoreT
 
 const initialEssentialData: EssentialData = {
   profileData: null,
-  allShops: null,
+  allShops: [],
   allCategories: [],
   paymentDetails: [],
   categoryMetaData: null,
