@@ -51,7 +51,7 @@ const useEssentialData = () => {
     queries: [
       {
         queryKey: [queryKey.getProfileData],
-        queryFn: getProfileData,
+        queryFn: getAllStores,
         staleTime: Infinity
       },
       {
@@ -95,7 +95,7 @@ const useEssentialData = () => {
 
       return {
         data: {
-          profileData: profileData,
+          profileData: null,
           allShops: results[1]?.data ?? [],
           paymentDetails: results[2]?.data ?? [],
           categoryMetaData: results[3]?.data?.data,
@@ -120,7 +120,7 @@ const useEssentialData = () => {
 
   // Set the essential data in the store
   useEffect(() => {
-    if (combinedQueries.data && !combinedQueries.isLoading) {
+    if (combinedQueries.data && !combinedQueries.isLoading && !combinedQueries.isError) {
       console.log('here is it refreshing')
       handleDataSuccess(combinedQueries.data)
     }
