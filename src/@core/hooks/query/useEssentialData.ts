@@ -6,8 +6,9 @@ import { queryKey } from '@/@core/querykey'
 import { useEssentialDataStore } from '@/@core/stores'
 import type { EssentialData } from '@/types/apps/stateStoreTypes'
 import axiosInstance from '@/@core/api/interceptor'
+import type { StoreDetails } from '@/types/apps/storeTypes'
 
-const getAllStores = async () => {
+const getAllStores = async (): Promise<StoreDetails[]> => {
   const res = await axiosInstance.get(`/ironcore/store-api/v0/storefront/`)
 
   return res.data
@@ -88,13 +89,13 @@ const useEssentialData = () => {
       const profileData = results[0]?.data?.[0]
 
       // If the currentShopData is not set, set it to the first shop data
-      const shopData = currentShopData ? currentShopData : allShops?.[0]
+      const shopData = currentShopData ? currentShopData : results?.[1]?.data?.[0] ?? null
 
       return {
         data: {
           profileData: profileData,
-          allShops: results[1]?.data,
-          paymentDetails: results[2]?.data,
+          allShops: results[1]?.data ?? [],
+          paymentDetails: results[2]?.data ?? [],
           categoryMetaData: results[3]?.data?.data,
           organizationData: results[4]?.data,
           allCategories: allCategories,
