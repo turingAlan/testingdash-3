@@ -23,7 +23,7 @@ type EssentialDataStore = {
   organizationData: any | null
   variantData: VariantData | null
   variantDataId: string | null
-  currentShopData: StoreDetails
+  currentShopData: any
   setProfileData: (data: UserData) => void
   setAllShops: (data: StoreDetails[]) => void
   setVariantData: (data: VariantData | null) => void
