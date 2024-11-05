@@ -101,7 +101,7 @@ const useEssentialData = () => {
           categoryMetaData: results[3]?.data?.data,
           organizationData: results[4]?.data,
           allCategories: allCategories,
-          currentShopData: shopData ?? null,
+          currentShopData: null,
           variantData: null,
           variantDataId: null
         },
