@@ -1,0 +1,6 @@
+export { default as itc } from './itc_logo.png'
+export { default as abg } from './abg.png'
+export { default as zenpure } from './zenpure.webp'
+export { default as zenpureDash } from './zenpure_dash.png'
+export { default as koh } from './koh.avif'
+export { default as nuvedo } from './nuvedo.webp'
