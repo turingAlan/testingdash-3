@@ -50,7 +50,8 @@ const ChangeShop = () => {
   const handleShopChange = (shop: StoreDetails) => {
     return () => {
       setOpen(false)
-      setCurrentShopData(shop)
+
+      // setCurrentShopData(shop)
     }
   }
 
