@@ -175,9 +175,9 @@ export default withAuth(
     const tokenParams = request.nextUrl.searchParams.get('accessToken')
 
     // If the user is logged in, `token` will be stored in the cookies or in the query params
-    // const token = request.cookies.get('accessToken')?.value || tokenParams
+    const token = request.cookies.get('accessToken')?.value || tokenParams
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzlmYzlkMDYtMjE4Zi00MDlkLWFhZWMtN2MzOWRkNmUyNzRmIiwib3JnX2lkIjoiMTRlNzllZjgtMjFlNy00NDVjLWExMmYtMTBmNzAwNTM1MDgzIiwiZXhwIjoxNzMxNDEzNjY3LCJpYXQiOjE3MzA4MDg4Njd9.cj9qjR-pZvSV4F_WsaCwEJzcv44BmLnU7mP4BqXc4Ic"
+    // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzlmYzlkMDYtMjE4Zi00MDlkLWFhZWMtN2MzOWRkNmUyNzRmIiwib3JnX2lkIjoiMTRlNzllZjgtMjFlNy00NDVjLWExMmYtMTBmNzAwNTM1MDgzIiwiZXhwIjoxNzMxNDEzNjY3LCJpYXQiOjE3MzA4MDg4Njd9.cj9qjR-pZvSV4F_WsaCwEJzcv44BmLnU7mP4BqXc4Ic"
 
     // Check if the user is logged in if token is there
     const isUserLoggedIn = !!token

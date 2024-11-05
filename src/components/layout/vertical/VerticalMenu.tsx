@@ -65,9 +65,11 @@ const VerticalMenu = ({ scrollMenu }: Props) => {
   const { transitionDuration } = verticalNavOptions
   const { lang: locale } = params
 
-  const isPayementDetailsPresent = !!paymentDetails?.find(value => {
-    return value.is_default
-  })
+  const isPaymentDetailsPresent =
+    Array.isArray(paymentDetails) &&
+    !!paymentDetails?.find(value => {
+      return value.is_default
+    })
 
   const ScrollWrapper = isBreakpointReached ? 'div' : PerfectScrollbar
 
@@ -143,7 +145,7 @@ const VerticalMenu = ({ scrollMenu }: Props) => {
         <MenuItem
           href={`/${locale}/addstore`}
           icon={<i className='tabler-building-store' />}
-          disabled={!isPayementDetailsPresent}
+          disabled={!isPaymentDetailsPresent}
         >
           {'Add Store'}
         </MenuItem>

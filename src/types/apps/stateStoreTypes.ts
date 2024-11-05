@@ -1,5 +1,3 @@
-
-
 import type { UserData } from './userTypes'
 
 import type { categoryMetaData, PaymentDetail, StoreDetails, VariantData } from '@/types/apps/storeTypes'
@@ -7,7 +5,7 @@ import type { categoryMetaData, PaymentDetail, StoreDetails, VariantData } from 
 type EssentialData = {
   profileData: UserData | null
   allShops: StoreDetails[] | null
-  paymentDetails: PaymentDetail[] | null
+  paymentDetails: PaymentDetail[]
   allCategories: string[]
   categoryMetaData: categoryMetaData | null
   organizationData: any | null
